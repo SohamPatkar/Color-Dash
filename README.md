@@ -1,10 +1,13 @@
 # Color Match Runner
+
 Color Match Runner is a simple and engaging 2D mobile game built using Unity. The core gameplay revolves around a color-based obstacle dodging mechanic, rewarding reflexes and precision.
 
 # Game Objective
+
 The player controls a character that automatically moves forward and can only pass through obstacles if their colors match. If the colors do not match, the player collides and the game ends. The goal is to survive as long as possible and achieve a high score.
 
-🕹️ Gameplay Features
+# Gameplay Features
+
 🔴 Color Matching: Player changes color during the run. Passing through an obstacle is only allowed if the colors match.
 
 🧱 Obstacle Spawning: Obstacles are spawned at regular intervals using an Object Pooling system to optimize performance.
@@ -18,20 +21,19 @@ The player controls a character that automatically moves forward and can only pa
 # Code Architecture
 
 #  Singleton Pattern
-The GameService class is implemented using the Singleton pattern to ensure that only one instance exists during runtime.
 
+The GameService class is implemented using the Singleton pattern to ensure that only one instance exists during runtime.
 It persists essential game data and managers across the game session.
 
 #  Object Pooling
-Obstacles are instantiated using a custom Object Pooling system to avoid performance hits from frequent Instantiate() and Destroy() calls.
 
+Obstacles are instantiated using a custom Object Pooling system to avoid performance hits from frequent Instantiate() and Destroy() calls.
 This makes spawning efficient and suitable for mobile platforms.
 
 #  Observer Pattern
+
 The Observer pattern is used for UI updates:
-
 The score, color status, and game over events are communicated to UI elements via event listeners.
-
 This results in a loosely coupled and easily maintainable UI system.
 
 #  How to Play
