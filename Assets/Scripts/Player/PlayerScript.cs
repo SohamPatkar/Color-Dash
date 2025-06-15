@@ -46,6 +46,12 @@ namespace Player
         public void OnHit()
         {
             animator.SetTrigger("Hit");
+            PlayParticleSysetem();
+
+            if (playerState == PlayerState.Alive)
+            {
+                AddScore();
+            }
         }
 
         public void PlayParticleSysetem()

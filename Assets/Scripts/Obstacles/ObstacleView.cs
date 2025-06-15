@@ -50,18 +50,16 @@ namespace Obstacle
             if (player && (colorOfSprite.color == player.GetSpriteRenderColor()))
             {
                 GameService.Instance.GetPlayer().OnHit();
-                GameService.Instance.GetPlayer().AddScore();
                 GameService.Instance.ChangeObstacleSpeed();
                 SoundManager.Instance.PlaySfxSound(SoundType.Collected);
                 GameService.Instance.SpawnObstacle();
-                GameService.Instance.GetPlayer().PlayParticleSysetem();
                 gameObject.SetActive(false);
                 obstacleController.ReturnToPool();
             }
             else
             {
-                GameService.Instance.GetPlayer().OnHit();
                 GameService.Instance.GetPlayer().SetPlayerState(PlayerState.Dead);
+                GameService.Instance.GetPlayer().OnHit();
                 SoundManager.Instance.PlaySfxSound(SoundType.Death);
                 GameService.Instance.SpawnObstacle();
                 gameObject.SetActive(false);
