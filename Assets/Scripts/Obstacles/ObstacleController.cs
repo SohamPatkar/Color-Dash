@@ -40,7 +40,6 @@ namespace Obstacle
         {
             GameService.Instance.ChangeObstacleSpeed();
             GameService.Instance.SpawnObstacle();
-            SoundManager.Instance.PlaySfxSound(SoundType.Collected);
             obstacleView.gameObject.SetActive(false);
         }
 

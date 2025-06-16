@@ -52,6 +52,7 @@ namespace Obstacle
             {
                 player.OnHit();
                 obstacleController.ObstacleOnHit();
+                SoundManager.Instance.PlaySfxSound(SoundType.Collected);
                 obstacleController.ReturnToPool();
             }
             else
@@ -59,6 +60,7 @@ namespace Obstacle
                 player.SetPlayerState(PlayerState.Dead);
                 player.OnHit();
                 SoundManager.Instance.PlaySfxSound(SoundType.Death);
+                obstacleController.ObstacleOnHit();
                 gameObject.SetActive(false);
             }
         }
