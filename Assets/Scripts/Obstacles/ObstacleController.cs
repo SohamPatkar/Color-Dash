@@ -36,6 +36,14 @@ namespace Obstacle
             return colorType;
         }
 
+        public void ObstacleOnHit()
+        {
+            GameService.Instance.ChangeObstacleSpeed();
+            GameService.Instance.SpawnObstacle();
+            SoundManager.Instance.PlaySfxSound(SoundType.Collected);
+            obstacleView.gameObject.SetActive(false);
+        }
+
         public virtual void ReturnToPool() { }
     }
 }

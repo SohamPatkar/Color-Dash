@@ -47,21 +47,18 @@ namespace Obstacle
         private void OnTriggerEnter2D(Collider2D other)
         {
             PlayerScript player = other.GetComponent<PlayerScript>();
+
             if (player && (colorOfSprite.color == player.GetSpriteRenderColor()))
             {
-                GameService.Instance.GetPlayer().OnHit();
-                GameService.Instance.ChangeObstacleSpeed();
-                SoundManager.Instance.PlaySfxSound(SoundType.Collected);
-                GameService.Instance.SpawnObstacle();
-                gameObject.SetActive(false);
+                player.OnHit();
+                obstacleController.ObstacleOnHit();
                 obstacleController.ReturnToPool();
             }
             else
             {
-                GameService.Instance.GetPlayer().SetPlayerState(PlayerState.Dead);
-                GameService.Instance.GetPlayer().OnHit();
+                player.SetPlayerState(PlayerState.Dead);
+                player.OnHit();
                 SoundManager.Instance.PlaySfxSound(SoundType.Death);
-                GameService.Instance.SpawnObstacle();
                 gameObject.SetActive(false);
             }
         }
